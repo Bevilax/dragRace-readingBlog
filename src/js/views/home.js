@@ -16,12 +16,18 @@ export const Home = () => {
 
 	return (
 		<div>
-			<ul>
-				{folk.map((item, index) => (
-					<li key={index}>
-						<a href= {"/folks/" + item.uid}>{item.name}</a></li>
-				))}
-			</ul>
+			<div className="card-group">
+			{folk.map((item, index) => (
+				<div key={index} className="col-2">
+				<div className="card-body">
+					<h5 className="card-title">{item.name}</h5>
+				</div>
+				<div className="card-footer">
+						<a href={"/folks/" + item.uid} className="btn btn-primary">{item.name}</a>
+				</div>
+			</div>
+			))}
+			</div>
 		</div>
 	);
 

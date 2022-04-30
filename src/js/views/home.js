@@ -1,15 +1,28 @@
 import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
+import { getFolk } from "../api";
+
 import "../../styles/home.css";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
-	</div>
-);
+export const Home = () => {
+	const [folk, setFolk] = React.useState([]);
+
+	React.useEffect(() => {
+		const fn = async () => {
+			const apiFolk = await getFolk();
+			setFolk(apiFolk);
+		};
+		fn();
+	}, []);
+
+	return (
+		<div>
+			<ul>
+				{folk.map((item, index) => (
+					<li key={index}>
+						<a href= {"/folks/" + item.uid}>{item.name}</a></li>
+				))}
+			</ul>
+		</div>
+	);
+
+	};

@@ -1,17 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Navbar = () => {
+export const NavBar = () => {
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-			</Link>
-			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
-				</Link>
-			</div>
-		</nav>
+		<div className="NavigationBar">
+			<nav className="navbar navbar-expand-lg navbar-light bg-dark">
+				<div className="NavTitle">
+					<a className="navbar-brand text-white">ReactionaryReact</a>
+				</div>
+				<button
+					className="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span className="navbar-toggler-icon"></span>
+				</button>
+				<div className="dropdown">
+					<button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+						Dropdown button
+					</button>
+					<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+						<li><a className="dropdown-item" href="#">Favorites</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
 	);
 };

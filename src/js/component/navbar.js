@@ -6,7 +6,9 @@ export const NavBar = () => {
 		<div className="NavigationBar">
 			<nav className="navbar navbar-expand-lg navbar-light bg-dark">
 				<div className="NavTitle">
-					<a className="navbar-brand text-white">ReactionaryReact</a>
+					<Link to="/">
+					<span className="navbar-brand text-white">React Boilerplate</span>
+					</Link>
 				</div>
 				<button
 					className="navbar-toggler"

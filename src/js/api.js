@@ -3,7 +3,7 @@ export async function getFolkById(id) {
 		"https://www.swapi.tech/api/people/"+id
 	);
 	const payload = await response.json();
-	return payload.result.properties;
+	return payload;
 }
 
 export async function getFolk() {

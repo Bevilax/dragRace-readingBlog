@@ -2,11 +2,12 @@ import React from "react";
 import { getFolk } from "../api";
 import { getPlanet } from "../api";
 import { FolksCard } from "../component/folkscard";
+import { FavoritesContext } from "../favorites";
 import "../../styles/home.css";
 
 export const Home = () => {
   const [folk, setFolk] = React.useState([]);
-//   const { favorites, setFavorites } = React.useContext(FavoritesContext);
+  const { favorites, setFavorites } = React.useContext(FavoritesContext);
 
   React.useEffect(() => {
     const fn = async () => {
@@ -33,7 +34,7 @@ export const Home = () => {
         <h3 className="ms-3">We Are The StarWars Characters</h3>
         <div className="d-flex flex-row flex-nowrap overflow-auto">
           {folk.map((item, index) => (
-            <FolksCard/>
+            <FolksCard nme ={item.name} uid = {item.uid} key ={index}/>
           ))}
         </div>
       </div>

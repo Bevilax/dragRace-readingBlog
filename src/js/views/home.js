@@ -34,7 +34,7 @@ export const Home = () => {
         <h3 className="ms-3">We Are The StarWars Characters</h3>
         <div className="d-flex flex-row flex-nowrap overflow-auto">
           {folk.map((item, index) => (
-            <FolksCard nme ={item.name} uid = {item.uid} key ={index}/>
+            <FolksCard name ={item.name} uid = {item.uid} key ={index}/>
           ))}
         </div>
       </div>

@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FavoritesContext } from "../favorites";
 
 export const NavBar = () => {
+	const { favorites, setFavorites } = React.useContext(FavoritesContext);
+  console.log(favorites);
 	return (
 		<div className="NavigationBar">
 			<nav className="navbar navbar-expand-lg navbar-light bg-dark">
@@ -21,13 +24,25 @@ export const NavBar = () => {
 					<span className="navbar-toggler-icon"></span>
 				</button>
 				<div className="dropdown">
-					<button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-						Dropdown button
-					</button>
-					<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-						<li><a className="dropdown-item" href="#">Favorites</a></li>
-					</ul>
-				</div>
+          <button
+            className="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {`Favorites (${favorites.length})`}
+          </button>
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+		  {favorites.map((item, index) => {
+          return (
+            <li className="dropdown-item" key={index} href="#">
+              {item.name}
+            </li>
+          );
+        })}
+          </ul>
+        </div>
 			</nav>
 		</div>
 	);

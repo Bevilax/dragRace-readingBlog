@@ -7,6 +7,7 @@ import "../../styles/home.css";
 
 export const Home = () => {
   const [folk, setFolk] = React.useState([]);
+  const [planet, setPlanet] = React.useState([]);
   const { favorites, setFavorites } = React.useContext(FavoritesContext);
 
   React.useEffect(() => {
@@ -16,8 +17,6 @@ export const Home = () => {
     };
     fn();
   }, []);
-
-  const [planet, setPlanet] = React.useState([]);
 
   React.useEffect(() => {
     const fn = async () => {
@@ -34,7 +33,7 @@ export const Home = () => {
         <h3 className="ms-3">We Are The StarWars Characters</h3>
         <div className="d-flex flex-row flex-nowrap overflow-auto">
           {folk.map((item, index) => (
-            <FolksCard name ={item.name} uid = {item.uid} key ={index}/>
+            <FolksCard character ={item} uid = {index +1} key ={index}/>
           ))}
         </div>
       </div>

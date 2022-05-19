@@ -3,11 +3,12 @@ import { FavoritesContext } from "../favorites";
 
 export const FolksCard = (props) => {
   const { favorites, setFavorites } = React.useContext(FavoritesContext);
-  const isFavorited = favorites.includes(props.uid);
+  const isFavorited = favorites.find((item) => item.name == props.character.name);
+
   return (
     <div className="border border-success col-3 m-3">
       <div className="card-body">
-        <h5 className="card-title">{props.name}</h5>
+        <h5 className="card-title">{props.character.name}</h5>
       </div>
       <div className="card-footer">
         <a href={"/folks/" + props.uid} className="btn btn-primary">
@@ -16,7 +17,9 @@ export const FolksCard = (props) => {
         {isFavorited ? (
           <button
             onClick={() => {
-              setFavorites(favorites.filter((uid) => uid !== props.uid));
+              setFavorites(
+                favorites.filter((object) => object.name !== props.character.name)
+              );
             }}
             className="btn btn-success"
           >
@@ -25,7 +28,10 @@ export const FolksCard = (props) => {
         ) : (
           <button
             onClick={() => {
-              setFavorites([...favorites, props.uid]);
+              setFavorites([
+                ...favorites,
+                { name: props.character.name, id: props.uid },
+              ]);
             }}
             className="btn btn-warning"
           >

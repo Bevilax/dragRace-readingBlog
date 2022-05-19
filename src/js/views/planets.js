@@ -7,11 +7,12 @@ export const Planets = () => {
     const params = useParams ()
 
     React.useEffect(() => {
-		const fn = async () => {
-			const apiPlanet = await getPlanetById(params.id);
-			setPlanet(apiPlanet);
-		};
-		fn();
+		// const fn = async () => {
+		// 	const apiPlanet = await getPlanetById(params.id);
+		// 	setPlanet(apiPlanet);
+		// };
+		// fn();
+        getPlanetById (params.id).then(info => setPlanet(info))
 	}, []);
 
     return (
@@ -23,7 +24,6 @@ export const Planets = () => {
         <div className="col-md-8">
         <div className="card-body">
             <h5 className="card-title">I am {planet !==null ? planet.name : ""}</h5>
-            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         </div>
         </div>
     </div>

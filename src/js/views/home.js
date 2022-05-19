@@ -4,6 +4,7 @@ import { getPlanet } from "../api";
 import { FolksCard } from "../component/folkscard";
 import { FavoritesContext } from "../favorites";
 import "../../styles/home.css";
+import { PlanetsCard } from "../component/planetscard";
 
 export const Home = () => {
   const [folk, setFolk] = React.useState([]);
@@ -42,16 +43,7 @@ export const Home = () => {
         <h3 className="ms-3">We Are The StarWars Planets</h3>
         <div className="d-flex flex-row flex-nowrap overflow-auto">
           {planet.map((item, index) => (
-            <div key={index} className="border border-success col-3 m-3">
-              <div className="card-body">
-                <h5 className="card-title">{item.name}</h5>
-              </div>
-              <div className="card-footer">
-                <a href={"/planets/" + item.uid} className="btn btn-primary">
-                  Learn More!
-                </a>
-              </div>
-            </div>
+            <PlanetsCard planet ={item} uid = {index +1} key ={index}/>
           ))}
         </div>
       </div>

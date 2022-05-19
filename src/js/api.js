@@ -17,7 +17,7 @@ export async function getFolk() {
 export async function getPlanetById (id) {
 	const response = await fetch ("https://swapi.dev/api/planets/"+id);
 	const payload = await response.json();
-	return payload.result.properties;
+	return payload;
 }
 
 export async function getPlanet() {
